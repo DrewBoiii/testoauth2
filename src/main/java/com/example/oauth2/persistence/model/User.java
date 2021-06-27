@@ -1,10 +1,9 @@
 package com.example.oauth2.persistence.model;
 
+import com.example.oauth2.auth.AuthenticationProvider;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -16,7 +15,8 @@ public class User {
 
     private String email;
     private String name;
-    private String locale;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private AuthenticationProvider authProvider;
 
 }
